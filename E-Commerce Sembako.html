@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toko Sembako Makmur Jaya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #fefefe;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+    header {
+      background: #ff7043;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo a {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .search-bar input {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 300px;
+    }
+    .search-bar button {
+      padding: 10px 15px;
+      margin-left: 5px;
+      background: white;
+      color: #ff7043;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .user-actions ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .user-actions a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav.navigation {
+      background: #fff;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav.navigation ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      justify-content: center;
+    }
+    nav.navigation a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
+    nav.navigation a.active, nav.navigation a:hover {
+      color: #ff7043;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to right, #ff7043, #ffa270);
+      color: white;
+    }
+    .btn-primary {
+      background: white;
+      color: #ff7043;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn-primary:hover {
+      background: #fff0ee;
+    }
+    .produk-preview {
+      padding: 40px 0;
+    }
+    .produk-preview h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .produk-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .produk-item {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .produk-item img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .produk-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    .produk-item p {
+      color: #ff7043;
+      font-weight: bold;
+    }
+    .produk-item button {
+      margin-top: 10px;
+      background: #ff7043;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .cart-container {
+      margin-top: 50px;
+    }
+    .cart-container h2 {
+      margin-bottom: 20px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      background: #fff;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .cart-item p {
+      margin: 0;
+    }
+    .checkout-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo"><a href="#">Makmur Jaya</a></div>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Cari produk...">
+        <button onclick="searchProduk()"><i class="fas fa-search"></i></button>
+      </div>
+      <nav class="user-actions">
+        <ul>
+          <li><a href="#"><i class="fas fa-user"></i> Akun</a></li>
+          <li><a href="#"><i class="fas fa-shopping-cart"></i> Keranjang</a></li>
+        </ul>
+      </nav>
+    </header>
+    <nav class="navigation">
+      <ul>
+        <li><a href="#" class="active">Beranda</a></li>
+        <li><a href="#produk-section">Produk</a></li>
+        <li><a href="#">Promo</a></li>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Kontak</a></li>
+      </ul>
+    </nav>
+    <section class="hero">
+      <h1>Selamat Datang di Toko Sembako Makmur Jaya</h1>
+      <a href="#produk-section" class="btn-primary">Lihat Produk</a>
+    </section>
+    <section class="produk-preview" id="produk-section">
+      <h2>Produk Unggulan</h2>
+      <div class="produk-container" id="produkContainer"></div>
+    </section>
+    <section class="cart-container">
+      <h2>Keranjang Belanja</h2>
+      <div id="cartItems"></div>
+      <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </section>
+    <footer>
+      <p>&copy; 2025 Toko Sembako Makmur Jaya</p>
+    </footer>
+  </div>
+  <script>
+    const produkList = [
+      { id: 1, nama: "Beras 5kg", harga: 65000, gambar: "https://daganghalal.blob.core.windows.net/28741/Product/1000x1000__berasfaiza1-1656917267252.jpg" },
+      { id: 2, nama: "Minyak 2L", harga: 42000, gambar: "https://cf.shopee.ph/file/3c827df96e5458455de1b7a1ec50e95f" },
+      { id: 3, nama: "Gula 1kg", harga: 15000, gambar: "https://cf.shopee.co.id/file/a657ab2bc777a90a73c405945d30f4a6" },
+      { id: 4, nama: "Tepung Terigu 1kg", harga: 30000, gambar: "https://down-id.img.susercontent.com/file/3213901e0b870df62f49fbc72dea3772" },
+      { id: 5, nama: "Teh Celup 1 Pack", harga: 20000, gambar: "https://cf.shopee.co.id/file/5801b97480ed566cb50c7a9079938394" },
+      { id: 6, nama: "Garam 1kg", harga: 10000, gambar: "https://tse1.mm.bing.net/th/id/OIP.1LJ7K-jws9iifO0RMsCwaAHaId?rs=1&pid=ImgDetMain&o=7&rm=3" },
+      { id: 7, nama: "Indomie Kari Ayam 1 Dus", harga: 40000, gambar: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/101/MTA-40618576/indomie_indomie_kari_ayam_1dus_1_dus_full01_98077b49.jpg" },
+      { id: 8, nama: "Margarin Ukuran Besar", harga: 28000, gambar: "https://id-test-11.slatic.net/p/10930abadec1576e549fc93297516907.jpg" },
+      { id: 9, nama: "Susu Kental Manis", harga: 15000, gambar: "https://down-id.img.susercontent.com/file/id-11134207-23020-b92pktbfyxnvfc" },
+      { id: 10, nama: "Kopi Kapal Air", harga: 30000, gambar: "https://cf.shopee.co.id/file/c592a4792301f22a0c1fa3a62601c68a" }
+    ];
+
+    const cart = [];
+    const produkContainer = document.getElementById("produkContainer");
+    const cartItems = document.getElementById("cartItems");
+
+    function renderProduk() {
+      produkContainer.innerHTML = "";
+      produkList.forEach(p => {
+        const el = document.createElement("div");
+        el.className = "produk-item";
+        el.innerHTML = `
+          <img src="${p.gambar}" alt="${p.nama}" />
+          <h3>${p.nama}</h3>
+          <p>Rp ${p.harga.toLocaleString()}</p>
+          <button onclick="addToCart(${p.id})">Tambah</button>
+        `;
+        produkContainer.appendChild(el);
+      });
+    }
+
+    function addToCart(id) {
+      const produk = produkList.find(p => p.id === id);
+      cart.push(produk);
+      renderCart();
+    }
+
+    function renderCart() {
+      cartItems.innerHTML = "";
+      cart.forEach((item, i) => {
+        const el = document.createElement("div");
+        el.className = "cart-item";
+        el.innerHTML = `<p>${item.nama}</p><p>Rp ${item.harga.toLocaleString()}</p>`;
+        cartItems.appendChild(el);
+      });
+    }
+
+    function checkout() {
+      if (cart.length === 0) return alert("Keranjang kosong!");
+      const total = cart.reduce((t, i) => t + i.harga, 0);
+      alert("Terima kasih telah berbelanja! Total: Rp " + total.toLocaleString());
+      cart.length = 0;
+      renderCart();
+    }
+
+    function searchProduk() {
+      const keyword = document.getElementById("searchInput").value.toLowerCase();
+      const hasil = produkList.filter(p => p.nama.toLowerCase().includes(keyword));
+      produkContainer.innerHTML = "";
+      hasil.forEach(p => {
+        const el = document.createElement("div");
+        el.className = "produk-item";
+        el.innerHTML = `
+          <img src="${p.gambar}" alt="${p.nama}" />
+          <h3>${p.nama}</h3>
+          <p>Rp ${p.harga.toLocaleString()}</p>
+          <button onclick="addToCart(${p.id})">Tambah</button>
+        `;
+        produkContainer.appendChild(el);
+      });
+    }
+
+    renderProduk();
+  </script>
+</body>
+</html>
